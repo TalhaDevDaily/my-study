@@ -34,7 +34,7 @@ let experimental = filterItem.map((items) => {
 
 console.log(experimental);
 
-// .join merges the sefulting array into single string with commas in between.
+// .join() merges the sefulting array into single string with commas in between.
 let joinSeparation = myArray
   .filter((item) => {
     return item === "three";
@@ -46,20 +46,24 @@ console.log(joinSeparation);
 */
 
 /*
+// var
 var; Function scoped (ignores block {} scope, but respects function boundaries). Can be reassigned. Can be redeclared in the same scope which can cause accidental overwrite.
 Hoisted and initialized with undefined. Accessing before declaration fives undefined; no error, but risky. Released in ECMAScript 1
 
+// let
 let: Block Scoped. Can be readdigned. Can't be redeclared in the same scope. Hoisted but in Temporal Dead Zone until declared. Accessing but declaration throws RererenceError.
 Released in ES6.
 
+// const
 const: Block scoped. Can't be readdigned. Can't be redeclared in the same scope. Hoisted but in Temporal Dead Zone until declared. Must be initialized when declared.
 Objects/ arrays assigned to const can still be mutated. Released in ES6
 
-
+// primitive and non-primitive
 primitive means the value is immutable and stored directly
-non-primitive values(Objects) are stored by reference
+non-primitive values(Objects) are stored by reference and are mutable by default
 Arrays and Functions are actually specialized Objects in JS
 
+// Number of Data Types
 There are 8 Data Types in JavaScript
 primitive
 1. string
@@ -72,17 +76,23 @@ primitive
 non-primitive
 8. Object
 
+// Function
 Function is a block of code that is set to perform specific tasks. There are 7 types of function. They are:
 1. Named Function
 2. Function Expression
 3. Arrow Function
 4. Anonymous Function
+5. Call back Function
+6. Constructor Function
+7. IIFE (Immediately Invoked Funciton Expression)
 
+// addEventListener
 addEventListener: a built-in method in JavaScript used to attach an even handler to an element. 
 Lets you listen for specific events (like 'click', 'keydown', 'mouseover', etc.). 
 Syntax: element.addEventListener('eventType', callBackFunction, useCaptureOptional)
 Callback function runs every time the specified even happens on that element.
 
+// this
 'this': in JavaScript is a spacial keyword that refers to be object(and it's content) that is currently executing the code. 
 Its value depends on how and where the function is called (runtime binding), not where it's written
 this, inside a constructor function, 'this' refers to the 'new' object being created
@@ -91,11 +101,48 @@ when you call a funciton with the new keyword, JS does 4 things:
 2. sets the prototype of that object to the constructor's prototype
 3. binds 'this' inside the constructor to that new object
 4. returns the new object (unless you return your own object manually)
+calls the global object
 
+// method
 method: a method is simply a function that is property of an object. when a function is stored inside an object and is meant to be called on
 
+// array method
 array method: a built-in function that you can call on an array to do something useful with 
 its elements - like adding, removing transforming, or searching them - without having to manually loop through the array yourself
+
+includes() - an array (and string) method used to check if a certain value exists. Returns a Boolean (true/false)
+
+sort() - method used to sort elements of an array in place. Sorts elements as strings in lexicographic order,
+not alphabetical lexicographic = (alphabet + numbers + symbol) as strings
+
+split() - a string method that divides a string into an array of substrings. It does not work on arrays; it's for strings only
+syntax: string.split(separator, limit)
+separator - fefines wher split the string. If "" (empty string), splits between every character. 
+If omitted, returns the whole string in an array.
+limit - optional. maximum number of splits to include in the array.
+// Example 1: Split by space
+const sentence = "JavaScript is fun";
+const words = sentence.split(" ");
+console.log(words); // ["JavaScript", "is", "fun"]
+
+// Example 2: Split into characters
+const chars = sentence.split("");
+console.log(chars); // ["J", "a", "v", "a", "S", "c", "r", "i", "p", "t", " ", "i", "s", " ", "f", "u", "n"]
+
+// Example 3: Limit the number of splits
+const limited = sentence.split(" ", 2);
+console.log(limited); // ["JavaScript", "is"]
+
+// join() - an array method that joins all elements into a single string.
+syntax: array.join(separatorOptional)
+Default separator is a comma (","), if none is given.
+
+reduce() - reduce the elements of an array to a single value. 
+Executes a reducer callback function on each element of the array, resulting in a single output value.
+Syntax: array.reduce(callback, initialValueOptional)
+callback - function(accumulator, currentValue, currentIndex, array)
+initialValue - starting value for the accumulator (optional but recommended)
+
 */
 
 const friends = ["Michael", "Steven", "Peter"];
@@ -118,3 +165,30 @@ console.log(
     ? "You have that friend!"
     : "You do not have that friend"
 );
+
+const sentence = "Hello World, JavaScript is fun";
+
+let justSplitted = sentence.split(" ");
+
+let joinedAgain = justSplitted.join(" ");
+console.log(joinedAgain);
+
+joinedAgain = justSplitted.join();
+console.log(joinedAgain);
+
+console.log(justSplitted);
+
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+const key = "a";
+console.log(obj.key);
+console.log(obj[key]);
+
+let sorted = friends.sort();
+console.log(sorted);
+
+let numbers = [1, 4, 5, 6, 8];
