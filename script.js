@@ -106,6 +106,26 @@ Function is a block of code that is set to perform specific tasks. There are 7 t
 - Definition: A function that runs immediately after being defined.
 - Key trait: Creates a private scope, avoids polluting the global namespace.
 
+🔹 Synchronous (⏳ Wait-your-turn style)
+- Definition: Tasks run one after another.
+- Rule: Each task must finish before the next starts.
+- Effect: Simple and predictable, but can be slow if one task takes a long time.
+- Analogy: Standing in a single checkout line — you wait until the person ahead is done.
+console.log("Task 1");
+console.log("Task 2"); // Runs only after Task 1 finishes
+
+🔹 Asynchronous (🚀 Don’t-wait style)
+- Definition: Tasks can start and then let others run without waiting for them to finish.
+- Rule: Long tasks don’t block the rest of the program.
+- Effect: Faster and more responsive, but needs extra handling (callbacks, promises, async/await).
+- Analogy: Ordering food at a restaurant — you place your order, then chat or check your phone while it’s being prepared.
+console.log("Task 1");
+
+setTimeout(() => {
+  console.log("Task 2 (done later)");
+}, 2000);
+
+console.log("Task 3"); // Runs immediately after Task 1
 
 // addEventListener
 addEventListener: a built-in method in JavaScript used to attach an even handler to an element. 
@@ -176,6 +196,89 @@ filter() - selects all elements in an array that match a condition.
 Used when you want every match 
 
 map() - transforms every element in an array to modify and reshape them without changing the original array
+
+Alright Abu — let’s break these three down clearly and with examples so they stick.  
+
+---
+
+## 1️⃣ **Nested Conditions**
+**Definition:**  
+A **nested condition** is when you put one conditional statement (like `if`, `else if`, or `else`) **inside another**.  
+It’s used when you need to check a second condition **only if** the first one is true.  
+
+**Example (JavaScript):**
+```javascript
+let score = 85;
+
+if (score >= 50) {
+  console.log("You passed!");
+  
+  if (score >= 80) {
+    console.log("You got an A!");
+  } else {
+    console.log("You passed, but not with an A.");
+  }
+} else {
+  console.log("You failed.");
+}
+```
+Here, the second `if` only runs if the first `if` is true.
+
+---
+
+## 2️⃣ **Factor Function** (I think you meant *factor function*, not “fataro”)
+**Definition:**  
+A **factor function** is a function that finds all the numbers that divide another number evenly (without a remainder).  
+It’s common in math-related programming tasks.
+
+**Example (JavaScript):**
+```javascript
+function factorsOf(num) {
+  let factors = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      factors.push(i);
+    }
+  }
+  return factors;
+}
+
+console.log(factorsOf(12)); // [1, 2, 3, 4, 6, 12]
+```
+This returns all factors of `12`.
+
+---
+
+## 3️⃣ **Local Storage**
+**Definition:**  
+In JavaScript, **`localStorage`** is a browser feature that stores **key–value pairs** on the user’s computer.  
+- Data **persists** even after closing the browser.  
+- It’s **domain-specific** (only accessible by pages from the same origin).  
+- Limit is usually around **5MB**.  
+
+**Basic Operations:**
+```javascript
+// Save data
+localStorage.setItem("username", "Abu");
+
+// Get data
+let user = localStorage.getItem("username");
+console.log(user); // Abu
+
+// Remove one item
+localStorage.removeItem("username");
+
+// Clear all
+localStorage.clear();
+```
+Useful for saving **user preferences, theme settings, or form data** without a server.
+
+---
+
+💡 **Pro tip for you, Abu:**  
+If you combine **localStorage** with your **club sign-up form**, you can auto-save partially filled data so students don’t lose progress if they refresh the page.
+
+---
 
 */
 
