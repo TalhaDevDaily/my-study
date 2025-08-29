@@ -79,12 +79,33 @@ non-primitive
 // Function
 Function is a block of code that is set to perform specific tasks. There are 7 types of function. They are:
 1. Named Function
+- Definition: A function with an explicit name, declared using the function keyword.
+- Key trait: Hoisted — can be called before it’s defined
+
 2. Function Expression
+- Definition: A function assigned to a variable or constant. Can be named or anonymous.
+- Key trait: Not hoisted — must be defined before use
+
 3. Arrow Function
+- Definition: A shorter syntax for writing functions, introduced in ES6.
+- Key trait: Lexically binds this (doesn’t create its own this). Cannot be used as a constructor.
+
 4. Anonymous Function
+- Definition: A function without a name, often used as a value or passed as an argument.
+- Key trait: Common in callbacks and IIFEs.
+
 5. Call back Function
+- Definition: A function passed as an argument to another function, to be executed later.
+- Key trait: Enables asynchronous and event‑driven programming.
+
 6. Constructor Function
+- Definition: A function used with new to create object instances.
+- Key trait: By convention, starts with a capital letter.
+
 7. IIFE (Immediately Invoked Funciton Expression)
+- Definition: A function that runs immediately after being defined.
+- Key trait: Creates a private scope, avoids polluting the global namespace.
+
 
 // addEventListener
 addEventListener: a built-in method in JavaScript used to attach an even handler to an element. 
@@ -143,9 +164,26 @@ Syntax: array.reduce(callback, initialValueOptional)
 callback - function(accumulator, currentValue, currentIndex, array)
 initialValue - starting value for the accumulator (optional but recommended)
 
+splice() - arr.splice is a swiss army knife for arrays. It ca do everything: insert, remove and replace elements
+
+slice() - it returns new array copying  to it all items from index start to end (not including end). 
+Both start and end can be negative, in that case position from array end is assumed.
+
+find() - searches for the first element that matches a condition in an array.
+Used when you need one matching value
+
+filter() - selects all elements in an array that match a condition. 
+Used when you want every match 
+
+map() - transforms every element in an array to modify and reshape them without changing the original array
+
 */
 
-const friends = ["Michael", "Steven", "Peter"];
+const friends = ["Michael", "Steven", "Peter", "Bob"];
+
+friends.splice(1, 1, "Matilda", "Jonas");
+
+console.log(friends);
 
 console.log(friends.length);
 console.log(friends.length - 1);
@@ -177,6 +215,9 @@ joinedAgain = justSplitted.join();
 console.log(joinedAgain);
 
 console.log(justSplitted);
+
+console.log(justSplitted.slice(1, 4));
+console.log(justSplitted.slice(-3));
 
 const obj = {
   a: 1,
